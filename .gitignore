@@ -2,8 +2,8 @@
 ######################
 **/logs
 *.log*
-.sql*
-.sqlite3
+.sql
+*.sqlite3
 
 ###################
 # PyCharm Related #
