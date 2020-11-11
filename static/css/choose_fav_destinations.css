@@ -1,0 +1,139 @@
+/* START (choose_fav_destinations.html): Style the destinations' containers. */
+.destinations-row {
+    margin: 1% 10% 1% 10%;
+    position: relative;
+}
+
+.destinations-row:first-child {
+    margin: 4% 0 0 0;
+}
+
+.destinations-row:nth-child(3) {
+    margin: 15% 10% 1% 10%;
+}
+
+.destinations-row:nth-last-child(2) {
+    margin: 1% 10% 5% 10%;
+}
+
+.destinations-col {
+    color: white;
+    margin-bottom: 1%;
+    padding: 0;
+}
+/* END */
+
+/* START (choose_fav_destinations.html): Position the button that goes to the next page and the div that contains the title. */
+.title{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.center-button{
+    margin: auto;
+    width: 30%;
+}
+
+#go-to-search-form-button{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 25%;
+}
+/* END */
+
+#refresh-page {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-top: 10%;
+}
+
+/* START (choose_fav_destinations.html): Style the title of the page. */
+.title h2{
+    color: white;
+    text-align: center;
+}
+/* END */
+
+.destination {
+    position: relative;
+    margin-right: 3%;
+    margin-left: 3%;
+    height: 200px;
+    border-radius: 15px;
+    background-color: yellow;
+    overflow: hidden;
+	box-shadow: 7px 7px 7px 0px grey;
+    transition: transform 0.5s;
+}
+
+.destination:hover{
+    transform: scale(1.1);
+}
+
+.destination-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    border-radius: 15px 15px 0 0;
+    /*background-color: pink;*/
+}
+
+.destination-1>img{
+    width: 100%;
+    height: 200px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.destination-2 {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    border-radius: 0 0 15px 15px;
+    /*background-color: rgb(188, 207, 188);
+    opacity: 0.5;*/
+}
+
+#destination-name {
+    margin: auto;
+    width: 70%;
+    color: white;
+    text-transform: capitalize;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    border-radius: 15px 15px 15px 15px;
+    background: #797777;
+    opacity: 0.7;
+}
+
+.destination>img {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    z-index: 10;
+}
+
+#target {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 8;
+}
+

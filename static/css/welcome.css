@@ -1,0 +1,22 @@
+body {
+    margin: 0px;
+    background-color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+#canvas {
+    position: absolute;
+}
+
+#center {
+    position: absolute;
+    background-color: pink;
+    border: 3px solid black;
+    top: 250px;
+    left: 50%;
+    width: 400px;
+    height: 300px;
+    margin-top: -150px;
+    margin-left: -200px;
+}

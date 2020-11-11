@@ -1,0 +1,72 @@
+/* START: Style the title of the page */
+.title{
+    position: absolute;
+    /*top: 85px;*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title h2{
+    color: white;
+    text-align: center;
+}
+/* END */
+
+/* START: Style the containers which contain the solutions for accommodation and flight */
+.result-row {
+    margin: 1% 10% 1% 10%;
+    position: relative;
+}
+
+.result-row:first-child {
+    margin: 5% 0 0 0;
+}
+
+.result-row:nth-child(4) {
+    margin: 10% 10% 1% 10%;
+    padding: 0 10% 0 20%;
+}
+/* END */
+
+/* START: Style flight solution container */
+.flight {
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
+    /*background-color: lightyellow;*/
+}
+
+.flight>div {
+    width: 150px;
+    height: 20px;
+    /*border: 2px dashed red;*/
+}
+
+/*
+#result-full-price {
+    text-align: center;
+}
+*/
+
+.book-btn {
+    outline: none;
+    border: none;
+    background: #4b8bb3;
+    opacity: 0.9;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.book-btn:hover {
+    background: #003366;
+    opacity: 0.9;
+}
+
+.center-button{
+    margin: auto;
+    width: 30%;
+    margin-top: 3%;
+}
+/* END */

@@ -1,0 +1,306 @@
+* {
+	margin: 0;
+    padding: 0;
+}
+
+html, body {
+	height: 100%;
+    background-image: url('/static/images/homepage-background.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@font-face{
+    font-family: googleFont;
+    src: url('/static/fonts/Montserrat-Bold.ttf');
+}
+
+/* START (all pages): Apply styling to the div that covers the page when it's not loading or going to another page. */
+.loading-screen {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    background-color: white;
+    width: 0%;
+    height: 100%;
+}
+
+.load-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+}
+/* END */
+
+nav a {
+	margin-left: 1rem;
+}
+
+/* START (all pages): Make the grid columns take the full height of the page. */
+.container-full-height {
+    height: 92.5%;
+}
+
+.full-height {
+    height: 100%;
+}
+/* END */
+
+/* START (home_welcome.html): Style the grid columns. */
+.home-page-col {
+ /* border: 1px solid red; */
+    font-family: googleFont;
+    color: white;
+    margin-top: 10%;
+    margin-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+/* END */
+
+/* START (home_welcome.html): Animate logo name. */
+.fill-text {
+    animation: fill-text 1s ease forwards 6.1s;
+}
+
+#logo path:nth-child(2){
+    stroke-dasharray: 400px;
+    stroke-dashoffset: 400px;
+    animation: line-anim 2s ease forwards;
+}
+
+#logo path:nth-child(3){
+    stroke-dasharray: 257px;
+    stroke-dashoffset: 257px;
+    animation: line-anim 2s ease forwards 0.3s;
+}
+
+#logo path:nth-child(4){
+	stroke-dasharray: 119px;
+    stroke-dashoffset: 119px;
+    animation: line-anim 2s ease forwards 0.6s;
+}
+
+#logo path:nth-child(5){
+    stroke-dasharray: 199px;
+    stroke-dashoffset: 199px;
+    animation: line-anim 2s ease forwards 0.9s;
+}
+
+#logo path:nth-child(6){
+    stroke-dasharray: 216px;
+    stroke-dashoffset: 216px;
+    animation: line-anim 2s ease forwards 1.2s;
+}
+
+#logo path:nth-child(7){
+	stroke-dasharray: 334px;
+    stroke-dashoffset: 334px;
+    animation: line-anim 2s ease forwards 1.5s;
+}
+
+#logo path:nth-child(8){
+    stroke-dasharray: 257px;
+    stroke-dashoffset: 257px;
+    animation: line-anim 2s ease forwards 1.8s;
+}
+
+#logo path:nth-child(9){
+    stroke-dasharray: 157px;
+    stroke-dashoffset: 157px;
+    animation: line-anim 2s ease forwards 2.1s;
+}
+
+#logo path:nth-child(10){
+    stroke-dasharray: 216px;
+    stroke-dashoffset: 216px;
+    animation: line-anim 2s ease forwards 2.4s;
+}
+
+#logo path:nth-child(11){
+    stroke-dasharray: 224px;
+    stroke-dashoffset: 224px;
+    animation: line-anim 2s ease forwards 2.7s;
+}
+
+#logo path:nth-child(12){
+    stroke-dasharray: 257px;
+    stroke-dashoffset: 257px;
+    animation: line-anim 2s ease forwards 3.0s;
+}
+
+#logo path:nth-child(13){
+    stroke-dasharray: 211px;
+    stroke-dashoffset: 211px;
+    animation: line-anim 2s ease forwards 3.3s;
+}
+
+#logo path:nth-child(14){
+    stroke-dasharray: 211px;
+    stroke-dashoffset: 211px;
+    animation: line-anim 2s ease forwards 3.6s;
+}
+
+#logo path:nth-child(15){
+    stroke-dasharray: 214px;
+    stroke-dashoffset: 214px;
+    animation: line-anim 2s ease forwards 3.9s;
+}
+
+#logo path:nth-child(16){
+    stroke-dasharray: 168px;
+    stroke-dashoffset: 168px;
+    animation: line-anim 2s ease forwards 4.2s;
+}
+
+#logo path:nth-child(17){
+	stroke-dasharray: 123px;
+    stroke-dashoffset: 123px;
+    animation: line-anim 2s ease forwards 4.5s;
+}
+
+#logo path:nth-child(18){
+    stroke-dasharray: 253px;
+    stroke-dashoffset: 253px;
+    animation: line-anim 2s ease forwards 4.8s;
+}
+
+#logo path:nth-child(19){
+    stroke-dasharray: 177px;
+    stroke-dashoffset: 177px;
+    animation: line-anim 2s ease forwards 5.1s;
+}
+
+#logo path:nth-child(20){
+    stroke-dasharray: 257px;
+    stroke-dashoffset: 257px;
+    animation: line-anim 2s ease forwards 5.4s;
+}
+
+#logo path:nth-child(21){
+    stroke-dasharray: 119px;
+    stroke-dashoffset: 119px;
+    animation: line-anim 2s ease forwards 5.7s;
+}
+/* END */
+
+/* START (home_welcome.html): Position the button that goes to another page. */
+#home-page-button {
+    position: absolute; /* Positioned relative to the body. */
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the button in the page. */
+}
+/* END */
+
+/* START (all pages): Styling the buttons that go to another pages. */
+.button a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 24px 40px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.button:hover a {
+    background: white;
+    color: #161616;
+    transition: 0.3s;
+}
+/* END */
+
+
+/* START (home_welcome.html): Define animations. */
+@keyframes line-anim {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill-text {
+    from {
+		fill: transparent;
+    }
+    to {
+        fill: white;
+    }
+}
+/* END */
+
+/* START (signup_form.html) */
+/*.form-container {
+    position: relative;
+    background-color: grey;
+    margin: 10% 20% 10% 20%;
+    padding: 2% 0 2% 0;
+}
+
+.signupForm {
+    padding: 0 25% 0 25%;
+    margin: 0;
+}
+
+#register-button {
+    position: absolute;
+    left: 50%;
+    top: 120%;
+    transform: translate(-50%, -50%);
+}*/
+/* END */
+/*
+.progress {
+    width:50%;
+    background:yellow;
+}
+.bar {
+    height:15px;
+    width:0%;
+    background:tomato;
+    text-align:right;
+}
+*/
+@media screen and (min-width: 992px){
+    nav a {
+        margin-left: 1rem;
+    }
+
+    .navbar-nav.navbar-center {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    div ul li a {
+        position: relative;
+        text-decoration: none;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+    }
+
+    div ul li a:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background-color: #000;
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    div ul li a:hover:before {
+        transform: scaleX(1);
+    }
+}

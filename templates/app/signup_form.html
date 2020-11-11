@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Signup{% endblock title %}
+
+{% block cssFiles %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup_login_form.css' %}">
+{% endblock cssFiles %}
+
+{% block content %}
+    <main data-barba="container" data-barba-namespace="home-section">
+
+        <div class="wrap">
+            <h2> Sign up </h2>
+            <form method="post">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    {{ form.errors }}
+                </div>
+
+                <input type="text" name="username" placeholder="Username.." required="" id="id_username"  maxlength="150">
+                <input type="password" name="password1" placeholder="Password.." required="" id="id_password1">
+                <input type="password" name="password2" placeholder="Password Confirmation.." required="" id="id_password2">
+
+                <input type="submit" value="Register">
+            </form>
+        </div>
+
+    </main>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://unpkg.com/@barba/core"></script> -->
+    <script src="{% static '@barba/core/dist/barba.umd.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock scripts %}

@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}About our site{% endblock title %}
+
+{% block cssFiles %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/choose_fav_destinations.css' %}">
+{% endblock cssFiles %}
+
+{% block content %}
+    <main data-barba="container" data-barba-namespace="choose_destinations-section">
+        <div class="container-fluid container-full-height">
+            <div class="row destinations-row">
+                <div class="col-lg-3 title">
+                    <h2>Choose your favorite destinations</h2>
+                </div>
+            </div>
+
+            <div id="refresh-btn-container" class="row destinations-row">
+                <div id="refresh-page" class="animate-this-button button">
+                    <a href="{% url 'app_choose_fav_destinations' %}">refresh</a>
+                </div>
+            </div>
+
+            {% for group in groups %}
+            <div class="row destinations-row delete-after-save">
+                {% for c in group %}
+                <div class="col-lg-3 destinations-col">
+                    <div class="destination">
+                        <div class="destination-1" data-name="{{c.city}}">
+                            <img src="{{ c.image }}" alt="{{c.city}}" width="80" height="80">
+                        </div>
+                        <div class="destination-2"><div id="destination-name">{{ c.city }}</div></div>
+                        <div id="selected" class="overlay" style="display: none;" onclick="selectDestination()"></div>
+                        <img id="selected-icon" src="{% static 'images/selected.png' %}" style="display: none;">
+                        <div id="target" onclick="selectDestination()"></div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+
+            <div class="row destinations-row">
+                <div id="save-cities" class="animate-this-button button center-button">
+                    <a href="#" onclick="sendSelectedDestinations()">Save your favorites</a>
+                </div>
+            </div>
+
+            <div id="search-form-button-container" class="row destinations-row" style="display: none;">
+                <div id="go-to-search-form-button" class="animate-this-button button">
+                    <a href="{% url 'app_search_form' %}">go to search form</a>
+                </div>
+            </div>
+        </div>
+
+        <!--
+        <div class="header">
+            <h1 class="title animate-this-h1">
+                about page
+            </h1>
+            <div class="animate-this-button button">
+                <a href="{% url 'app_welcome' %}">go back to home</a>
+            </div>
+        </div>
+        -->
+
+    </main>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://unpkg.com/@barba/core"></script> -->
+    <script src="{% static '@barba/core/dist/barba.umd.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="{% static 'js/carhartl-jquery-cookie-92b7715/jquery.cookie.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/choose_fav_destinations.js' %}"></script>
+{% endblock scripts%}

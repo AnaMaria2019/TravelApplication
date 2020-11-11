@@ -1,0 +1,128 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 50vh;
+    max-width: 700px;
+    margin: auto;
+    margin-top: 100px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+.wrap {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 20px;
+}
+
+.wrap h2 {
+    box-sizing: border-box;
+    width: 100%;
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.form-err {
+    color: white;
+}
+
+.wrap .row100 {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.wrap .row100 .col {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding: 0 10px;
+    margin: 30px 0 10px;
+    transition: 0.5s;
+}
+
+.wrap .row100 .inputBox{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+}
+
+.wrap .row100 .inputBox input{
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    padding: 0 10px;
+    z-index: 1;
+    color: #000;
+}
+
+.wrap .row100 .inputBox .text {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    line-height: 40px;
+    font-size: 18px;
+    padding: 0 10px;
+    display: block;
+    transition: 0.5s;
+}
+
+.wrap .row100 .inputBox input:focus + .text,
+.wrap .row100 .inputBox input:valid + .text {
+    box-sizing: border-box;
+    top: -35px;
+    left: -10px;
+}
+
+.wrap .row100 .inputBox .line {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #fff;
+    transition: 0.5s;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+.wrap .row100 .inputBox input:focus ~ .line,
+.wrap .row100 .inputBox input:valid ~ .line {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+input[type=submit]{
+    box-sizing: border-box;
+    border: none;
+    padding: 7px 35px;
+    margin-left: 40%;
+    cursor: pointer;
+    outline: none;
+    background: #60adde;
+    color: #000;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+input[type=submit]:hover{
+    background: #003366;
+    opacity: 0.7;
+}
+

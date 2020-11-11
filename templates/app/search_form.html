@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Search Form{% endblock title %}
+
+{% block cssFiles %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/search_form.css' %}">
+{% endblock cssFiles %}
+
+{% block content %}
+    <main data-barba="container" data-barba-namespace="search-form-section">
+
+        <div class="form-container">
+            <div class="wrap">
+                <h2>Search Form</h2>
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        {{ form.errors }}
+
+                        {% if not from_location %}
+                            <p class="form-err">Locatia de plecare introdusa este incorecta!</p>
+                        {% endif %}
+
+                        {% if not to_location %}
+                            <p class="form-err">Locatia destinatie introdusa este incorecta!</p>
+                        {% endif %}
+                    </div>
+
+                    <div class="row100">
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="text" name="from_location" required="" id="id_from_location" maxlength="150">
+                                <span class="text">Aeroport Plecare</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="text" name="to_location" required="" id="id_to_location" maxlength="150">
+                                <span class="text">Aeroport Destinatie</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row100">
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="text" name="start_date" autofocus="" required="" id="id_start_date">
+                                <span class="text">Data Inceput</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="text"name="end_date" autofocus="" required="" id="id_end_date">
+                                <span class="text">Data Sfarsit</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row100">
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="text" name="nr_persons" autofocus="" required="" id="id_nr_persons" maxlength="50">
+                                <span class="text">Numar persoane</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="text" name="nr_rooms" autofocus="" required="" id="id_nr_rooms" maxlength="50">
+                                <span class="text">Numar camere</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row100">
+                        <div class="col">
+                            <div class="inputBox">
+                                <input type="number" name="budget" autofocus="" required="" id="id_budget">
+                                <span class="text">Buget alocat</span>
+                                <span class="line"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row100">
+                        <div class="col">
+                            <input type="submit" value="Cauta">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script src="https://unpkg.com/@barba/core"></script> -->
+    <script src="{% static '@barba/core/dist/barba.umd.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock scripts%}

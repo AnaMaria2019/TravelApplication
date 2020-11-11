@@ -1,0 +1,137 @@
+/* START: Style the title of the page */
+.title{
+    position: absolute;
+    /*top: 85px;*/
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title h2{
+    color: white;
+    text-align: center;
+}
+/* END */
+
+/* START: Style the containers which contain the solutions for accommodation and flight */
+.result-row {
+    margin: 1% 10% 1% 10%;
+    position: relative;
+}
+
+.result-row:first-child {
+    margin: 5% 0 0 0;
+}
+
+.result-row:nth-child(4) {
+    margin: 10% 7% 1% 7%;
+}
+/* END */
+
+/* START: Style flight solution container */
+.flight {
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
+    /*background-color: lightyellow;*/
+}
+
+.flight>div {
+    width: 150px;
+    height: 20px;
+    /*border: 2px dashed red;*/
+}
+
+/*
+#result-full-price {
+    text-align: center;
+}
+*/
+
+.book-btn {
+    outline: none;
+    border: none;
+    background: #4b8bb3;
+    opacity: 0.9;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.book-btn:hover {
+    background: #003366;
+    opacity: 0.9;
+}
+/* END */
+
+/* START: Style the container that contains the recommendations */
+.recommendations-row {
+    margin: 1% 10% 1% 10%;
+    position: relative;
+}
+/* END */
+
+/* START: Style reccommendations */
+#recommendations-title {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#recommendations-title>h2 {
+    color: white;
+    text-align: center;
+}
+
+.destination {
+    position: relative;
+    margin-right: 3%;
+    margin-left: 3%;
+    height: 200px;
+    border-radius: 15px;
+    background-color: yellow;
+    overflow: hidden;
+	box-shadow: 7px 7px 7px 0px grey;
+    transition: transform 0.5s;
+}
+
+.destination:hover{
+    transform: scale(1.1);
+}
+
+.destination-1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    border-radius: 15px 15px 0 0;
+    /*background-color: pink;*/
+}
+
+.destination-1>img{
+    width: 100%;
+    height: 200px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.destination-2 {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    border-radius: 0 0 15px 15px;
+    /*background-color: rgb(188, 207, 188);
+    opacity: 0.5;*/
+}
+
+.name {
+    margin: auto;
+    width: 70%;
+    color: white;
+    text-transform: capitalize;
+    font-size: large;
+    font-weight: bolder;
+}
+/* END */
+

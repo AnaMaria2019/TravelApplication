@@ -1,0 +1,197 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block title %}Your Flight{% endblock title %}
+
+{% block cssFiles %}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/show_loader.css' %}">
+    <link rel="stylesheet" href="{% static 'css/show_error.css' %}">
+    <link rel="stylesheet" href="{% static 'css/show_flight.css' %}">
+{% endblock cssFiles %}
+
+{% block content %}
+<div class="container-fluid container-full-height">
+    <div class="row result-row">
+        <div class="col-lg-3 title">
+            <h2>Show Flight solution</h2>
+        </div>
+        
+        <!--
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-success" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %} -->
+        <!--
+            <ul class="messages">
+                {% for message in messages %}
+                    {% if message.tags %}
+                        <li class="{{ message.tags }}">{{ message }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+         -->
+        <!-- {% endif %}
+        -->
+    </div>
+    
+    <div id="loader-container">
+        <div id="loader"></div>
+    </div>
+
+    <div id="error-container" style="display: none;">
+        <div id="error-message"></div>
+        <a href="{% url 'app_search_form' %}" class="btn btn-primary go-to-form-btn">go to search form</a>
+    </div>
+    
+    <div class="row result-row">
+        <div class="col-lg-12">
+            <div id="result-container-flight" class="card" style="width: 35rem; display: none;">
+                <div id="result-header-flight" class="card-header"></div>
+                <div class="card-body">
+                    <h5 class="card-title">Best solution for flight</h5>
+                    <div class="flight">
+                        <div id="result-f1-provider" class="card-text"></div>
+                        <div id="result-f1-depart-time" class="card-text"></div>
+                        <div id="result-f1-arrival-time" class="card-text"></div>
+                    </div>
+                    
+                    <div class="flight">
+                        <div id="result-f2-provider" class="card-text"></div>
+                        <div id="result-f2-depart-time" class="card-text"></div>
+                        <div id="result-f2-arrival-time" class="card-text"></div>
+                    </div>
+
+                    <br/>
+                    <br/>
+                    <div id="result-full-price" class="card-text"></div>
+                    <br/>
+    
+                    <a href="#" id="result-url-book-flight" class="btn btn-primary book-btn">Book Flight</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sh-fl" class="row result-row" style="display: none;">
+        <div class="animate-this-button button center-button">
+            <a href="{% url 'app_search_accommodation' %}" class="animate-this-button button center-button">Search for accomodation</a>
+            <!--
+            <form role="form" action="{% url 'app_search_accommodation' %}" method="get">
+                <button type="submit" class="btn btn-primary book-btn">Search for accomodation</button>
+            </form>
+            -->
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
+
+{% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="{% static 'js/carhartl-jquery-cookie-92b7715/jquery.cookie.js'%}"></script>
+    <!-- <script src="https://unpkg.com/@barba/core"></script> -->
+    <script src="{% static '@barba/core/dist/barba.umd.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.4/gsap.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>-->
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        var poll_xhr;
+        var will_stop = 0;
+
+        function csrfSafeMethod(method) {
+            // these HTTP methods do not require CSRF protection
+            return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+        }
+
+        var show_flight = function(){
+            var csrftoken = $.cookie('csrftoken');
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if(!csrfSafeMethod(settings.type) && !this.crossDomain){
+                        xhr.setRequestHeader("X-CSRFTOKEN", csrftoken);
+                    }
+                }
+            });
+
+            show = $.ajax({
+                url: 'get_flight',
+                type: 'GET',
+                dataType: 'json',
+                async: true,
+                success: function(result) {
+                    // SHOW IN PAGE ALL THE DETAILS ABOUT THE FLIGHT FROM THE 'RESULT' JSON
+                    document.getElementById("result-container-flight").style.display = "block";
+                    document.getElementById("result-header-flight").textContent = result.from_airport + " - " + result.to_airport;
+                    document.getElementById("result-f1-provider").textContent = result.f1_provider;
+                    document.getElementById("result-f1-depart-time").textContent = result.f1_depart_time;
+                    document.getElementById("result-f1-arrival-time").textContent = result.f1_arrival_time;
+                    document.getElementById("result-f2-provider").textContent = result.f2_provider;
+                    document.getElementById("result-f2-depart-time").textContent = result.f2_depart_time;
+                    document.getElementById("result-f2-arrival-time").textContent = result.f2_arrival_time;
+                    document.getElementById("result-full-price").textContent = "Full price: " + result.full_price + " lei";
+                    document.getElementById("result-url-book-flight").href = result.url_book;
+                    console.log(result.url_book); // UNEORI LINK-UL ESTE VOID(0) NU STIU DE CE
+                }
+            });
+        }
+
+        var poll = function(){
+            var json_dump = "{{ data }}"
+            var task_id = "{{ task_id }}"
+            var csrftoken = $.cookie('csrftoken');
+            console.log("{{ data }}");
+
+            $.ajaxSetup({
+                beforeSend: function(xhr, settings) {
+                    if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                        xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                    }
+                }
+            });
+
+            console.log(task_id);
+
+            poll_xhr = $.ajax({
+                url:'poll_state',
+                type: 'POST',
+                data: {
+                    task_id: task_id,
+                },
+                success: function(result) {
+                    if (result.message == "SUCCESS" && (result.return_string == "Your budget is not enough!" || result.return_string == "There is no flight!")){
+                        will_stop = 1;
+                        console.log(result.return_string);
+                        // SE AFISEAZA UN MESAJ CA NU S-A GASIT ZBOR + BUTON CE REDIRECTIONEAZA DIN NOU CATRE FORMULARUL DE CAUTARE
+                        document.getElementById("loader-container").style.display = "none";
+                        document.getElementById("error-container").style.display = "block";
+                        document.getElementById("error-message").textContent = result.return_string;
+                    }
+                    else if (result.message == "SUCCESS" || result.message == "No task_id in the request") {
+                        will_stop = 1;
+                        //document.getElementById("user-count").textContent="DONE";
+                        document.getElementById("loader-container").style.display = "none";
+                        document.getElementById("sh-fl").style.display = "block";
+                        show_flight();
+                    }
+                    else{
+                        // SE AFISEAZA SCREEN LOADING
+                        console.log(result.message);
+                        //document.getElementById("user-count").textContent="PROCRESSING";
+                    };
+                }
+            });
+        }
+
+        var refreshIntervalId = setInterval(function() {
+            poll();
+            if(will_stop == 1){
+                clearInterval(refreshIntervalId);
+            }
+        },500);
+    </script>
+{% endblock scripts%}

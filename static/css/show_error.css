@@ -1,0 +1,41 @@
+#error-container {
+    position:fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: 0.6;
+  }
+  
+  #error-message {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    width: 200px;
+    margin: -70px 0 0 -70px;
+    color: black;
+  }
+
+.go-to-form-btn {
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    z-index: 2;
+    width: 150px;
+    margin: -75px 0 0 -75px;
+    outline: none;
+    border: none;
+    background: #4b8bb3;
+    opacity: 0.9;
+    border-radius: 20px;
+    font-size: 15px;
+    color: #fff;
+}
+
+.go-to-form-btn:hover {
+    background: #003366;
+    opacity: 0.9;
+}
