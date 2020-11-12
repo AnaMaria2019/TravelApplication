@@ -38,8 +38,12 @@ Follow all the steps below if you want to get this project up and running on you
   * In 'Terminal' type `django-admin startproject pennytravel`
   * In 'Terminal' type `cd pennytravel` to enter in the project's directory
   * In 'Terminal' type `python manage.py startapp app` to create a Django app
+  * Download the repository and add the files in their corresponding directories within the project
   * In 'Terminal' type `python manage.py makemigrations`
   * In 'Terminal' type `python manage.py migrate`
   * In 'Terminal' type `python manage.py loaddata app/fixtures/fixture_1.json` to initialize the database with the necessary data used by the Django Project
   
-* Download the repository and add the files in their corresponding directories within the project
+* Run the application:
+  * Open 2 Python terminals in PyCharm
+  * In Terminal_1 type `python manage.py runserver`
+  * In Terminal_2 type `celery -A pennytravel worker -l inf` in order to start celery process
