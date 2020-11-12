@@ -40,3 +40,5 @@ Follow all the steps below if you want to get this project up and running on you
   * In 'Terminal' type `python manage.py makemigrations`
   * In 'Terminal' type `python manage.py migrate`
   * In 'Terminal' type `python manage.py loaddata app/fixtures/fixture_1.json` to initialize the database with the necessary data used by the Django Project
+  
+* Download the repository and add the files in their corresponding directories within the project
