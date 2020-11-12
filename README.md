@@ -16,6 +16,7 @@ Follow all the steps below if you want to get this project up and running on you
   * numpy `pip install numpy`
   * Pillow `pip install Pillow`
   * crispy_forms `pip install django-crispy-forms`
+* Make sure you have RabbitMQ up and running on your host
 
 ### Setup steps
 
