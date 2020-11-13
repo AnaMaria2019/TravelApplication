@@ -35,15 +35,15 @@ Follow all the steps below if you want to get this project up and running on you
   * <strong>Step 3</strong>: Open <strong>Terminal</strong> and run the following command: `pip install Django==2.2.8`
   
 * Create a Django project within the Pycharm project just created:
-  * In 'Terminal' type `django-admin startproject pennytravel`
-  * In 'Terminal' type `cd pennytravel` to enter in the project's directory
-  * In 'Terminal' type `python manage.py startapp app` to create a Django app
+  * In <strong>Terminal</strong> type `django-admin startproject pennytravel`
+  * In <strong>Terminal</strong> type `cd pennytravel` to enter in the project's directory
+  * In <strong>Terminal</strong> type `python manage.py startapp app` to create a Django app
   * Download the repository and add the files in their corresponding directories within the project
-  * In 'Terminal' type `python manage.py makemigrations`
-  * In 'Terminal' type `python manage.py migrate`
-  * In 'Terminal' type `python manage.py loaddata app/fixtures/fixture_1.json` to initialize the database with the necessary data used by the Django Project
+  * In <strong>Terminal</strong> type `python manage.py makemigrations`
+  * In <strong>Terminal</strong> type `python manage.py migrate`
+  * In <strong>Terminal</strong> type `python manage.py loaddata app/fixtures/fixture_1.json` to initialize the database with the necessary data used by the Django Project
   
 * Run the application:
   * Open 2 Python terminals in PyCharm
-  * In Terminal_1 type `python manage.py runserver`
-  * In Terminal_2 type `celery -A pennytravel worker -l inf` in order to start celery process
+  * In <strong>Terminal_1</strong> type `python manage.py runserver`
+  * In <strong>Terminal_2</strong> type `celery -A pennytravel worker -l inf` in order to start celery process
