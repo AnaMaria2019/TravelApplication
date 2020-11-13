@@ -7,7 +7,7 @@ Follow all the steps below if you want to get this project up and running on you
 
 ### Prerequisites
 
-* [Pycharm Community](https://www.jetbrains.com/pycharm/) - version 2020.1
+* [PyCharm Community](https://www.jetbrains.com/pycharm/) - version 2020.1
 * [Python](https://www.python.org/downloads/release/python-360/) - version 3.6
 * Django Framework - version 2.2.8
 * Python libraries needed (--): 
