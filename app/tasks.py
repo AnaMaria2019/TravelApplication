@@ -96,11 +96,25 @@ def scrape_flight(url, username):
 
     flight2_depart_time, flight2_arrival_time, flight2_company = get_data_from_flight(flight2)
 
+    """
     price_div = curr_flight.find('div', {"class": "col-price result-column"})
     price = price_div.find('span', {"class": "price-text"}).get_text()
     int_price = string_to_int(price)
     link = price_div.find('a')
     full_link = "https://www.momondo.ro/" + link['href']
+    """
+
+    price_span = curr_flight.find('span', id=lambda x: x and x.endswith('-price-text'))
+    price = price_span.get_text()
+    int_price = string_to_int(price)
+    print(int_price)
+    provider_name = curr_flight.find('span', {'class': "providerName"}).get_text().replace('\n', '')
+    # print('Price {} using the provider {}'.format(price, provider_name))
+    link = curr_flight.find('a', id=lambda x: x and x.endswith('-booking-link'))
+    href = link['href']
+    full_link = "https://www.momondo.ro/" + href
+    print(full_link)
+    # print(book_flight_link)
 
     user = User.objects.get(username=username)
     print(username)
