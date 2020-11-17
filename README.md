@@ -1,5 +1,6 @@
 # TravelApplication
 
+If you want to follow the developing process of this project, visit my other repository [here](https://www.google.com)
 
 ## Getting Started
 
