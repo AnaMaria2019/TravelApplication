@@ -32,6 +32,9 @@ Follow all the steps below if you want to get this project up and running on you
   * <strong>Step 1</strong>: Make sure that the Python interpreter is your local venv. To check this go to 'File' -> 'Settings' -> 'Project: <name_of_the_project>'-> 'Python Interpreter' and here select your venv if it's not selected already.
   * <strong>Step 2</strong>: Make sure that when you open 'Terminal' from Pycharm you have the venv activated (if you don't type the following command: `venv\Scripts\avtivate` and press Enter). If the venv is activated it will appear like this '(venv)' in the front of the line (Example: '(venv) D:\1_Ana\3_Info\11_Facultate\1_Licenta\Lucrare_de_Licenta\1_Aplicatie\TravelApplication>')
   
+* Install <strong>Django</strong> in your project's venv:
+  * Open <strong>Terminal</strong> and run the following command: `pip install Django==2.2.8`
+
 * Install the Python libraries listed above (--) in yout project's venv:
   * In <strong>Terminal</strong> install the packages using pip:
   * `pip install celery`
@@ -39,9 +42,6 @@ Follow all the steps below if you want to get this project up and running on you
   * `pip install numpy`
   * `pip install Pillow`
   * `pip install django-crispy-forms`
-  
-* Install <strong>Django</strong> in your project's venv:
-  * Open <strong>Terminal</strong> and run the following command: `pip install Django==2.2.8`
   
 * Create a Django project within the Pycharm project just created:
   * In <strong>Terminal</strong> type `django-admin startproject pennytravel`
