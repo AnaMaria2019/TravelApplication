@@ -12,11 +12,11 @@ Follow all the steps below if you want to get this project up and running on you
 * [Python](https://www.python.org/downloads/release/python-360/) - version 3.6
 * Django Framework - version 2.2.8
 * Python libraries needed (--): 
-  * celery `pip install celery`
-  * celery-progress `pip install celery-progress`
-  * numpy `pip install numpy`
-  * Pillow `pip install Pillow`
-  * crispy_forms `pip install django-crispy-forms`
+  * <strong>celery</strong>
+  * <strong>celery-progress</strong>
+  * <strong>numpy</strong>
+  * <strong>Pillow</strong>
+  * <strong>crispy_forms</strong>
 * FireFox - version 76.0.1
 * Make sure you have RabbitMQ up and running on your host
 
