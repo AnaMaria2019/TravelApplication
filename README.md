@@ -1,6 +1,6 @@
 # TravelApplication
 
-If you want to follow the developing process of this project, visit my other repository [here](https://www.google.com)
+If you want to follow the developing process of this project, visit my other repository [here](https://github.com/AnaMaria2019/RecSystem_and_WebScraping/tree/master)
 
 ## Getting Started
 
