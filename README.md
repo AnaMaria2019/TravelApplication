@@ -2,6 +2,10 @@
 
 If you want to follow the developing process of this project, visit my other repository [here](https://github.com/AnaMaria2019/RecSystem_and_WebScraping/tree/master)
 
+## Description
+
+PennyTravel is a web application built in Django Framework, designed in a way no other travel application existing is. The purpose of this app is to help the user find the best solutions for finding a flight and an accommodation in his range of allocated budget for a holiday. Furthermore PennyTravel provides the user a recommendation system which gives the user another 3 locations that might interest him based on the current destination and his preferences.
+
 ## Getting Started
 
 Follow all the steps below if you want to get this project up and running on your computer.
